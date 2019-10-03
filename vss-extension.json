@@ -1,7 +1,7 @@
 {
     "manifestVersion": 1,
     "id": "sprintActivityReport",
-    "version": "0.0.10",
+    "version": "0.0.11",
     "name": "Sprint Backlog Activity Report",
     "scopes": ["vso.work", "vso.extension.data_write"],
     "description": "Report on backlog item movement within a sprint.  Gives you insight in to things like How many stories to we push out of this sprint? or How many stories did we add to this sprint?.",
@@ -69,15 +69,30 @@
         "id": "sprintBacklogReport",
         "type": "ms.vss-work-web.backlog-panel",        
         "description": "Report on Sprint backlog activity.",
-        "targets": ["ms.vss-work-web.iteration-backlog-toolpane",
-                    "ms.vss-work-web.backlog-board-card-item-menu",
-                  "ms.vss-work-web.iteration-backlog-tabs"],
+        "targets": ["ms.vss-work-web.iteration-backlog-toolpane"
+                    ],
         "properties": {
           "uri": "toolpane.html",
           "name": "Sprint Backlog Activity",
           "title": "Sprint Backlog Activity Report",
           "registeredObjectId": "sprintBacklogReport"
         }
+      },
+      {
+        "id": "sprintBacklogReportTab",
+        "type": "ms.vss-web.tab",
+        "description": "Report on Sprint backlog activity.",
+        "targets": [
+            "ms.vss-work-web.iteration-backlog-tabs"
+        ],
+        "properties": {
+            "text": "Sprint Backlog Activity",
+            "title": "Sprint Backlog Activity",
+            "name": "Sprint Backlog Activity",
+            "uri": "toolpane.html",          
+            "registeredObjectId": "sprintBacklogReport"
+        }
+    
       }
     ]
   }
