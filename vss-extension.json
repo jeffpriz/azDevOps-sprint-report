@@ -1,7 +1,7 @@
 {
     "manifestVersion": 1,
     "id": "sprintActivityReport",
-    "version": "0.0.6",
+    "version": "0.0.7",
     "name": "Sprint Backlog Activity Report",
     "scopes": ["vso.work", "vso.extension.data_write"],
     "description": "Report on backlog item movement within a sprint.  Gives you insight in to things like How many stories to we push out of this sprint? or How many stories did we add to this sprint?.",
