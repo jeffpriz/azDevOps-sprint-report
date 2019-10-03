@@ -1,0 +1,26 @@
+{    
+    "compilerOptions": {
+        "module": "amd",
+        "target":"es6",
+        "moduleResolution": "node",
+        "sourceMap": false,
+        "jsx": "react",
+        "outDir": "dist",
+        "types": [
+            "vss-web-extension-sdk"
+        ]
+    },
+    "exclude": [
+        "**/node_modules/**",
+        "bower_components",
+        "jspm_packages",
+        "tmp",
+        "temp",
+        "dist"
+      ],
+      "include": [
+        "./**/*.ts",
+        "./**/*.tsx"
+      ]
+
+}

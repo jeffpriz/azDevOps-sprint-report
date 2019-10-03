@@ -288,3 +288,6 @@ __pycache__/
 *.odx.cs
 *.xsd.cs
 .taskkey
+
+#package output
+*.vsix
