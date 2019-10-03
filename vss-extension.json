@@ -1,7 +1,7 @@
 {
     "manifestVersion": 1,
     "id": "sprintActivityReport",
-    "version": "0.0.8",
+    "version": "0.0.9",
     "name": "Sprint Backlog Activity Report",
     "scopes": ["vso.work", "vso.extension.data_write"],
     "description": "Report on backlog item movement within a sprint.  Gives you insight in to things like How many stories to we push out of this sprint? or How many stories did we add to this sprint?.",
@@ -16,7 +16,7 @@
       }
     ],
     "categories": ["Azure Boards"],
-    "tags": ["sprint", "iteration", "report", "moved story"],
+    "tags": ["sprint", "iteration", "report", "moved story", "backlog report"],
     "content": {
       "details": {
         "path": "details.md"
@@ -69,7 +69,8 @@
         "id": "sprintBacklogReport",
         "type": "ms.vss-work-web.backlog-panel",        
         "description": "Report on Sprint backlog activity.",
-        "targets": ["ms.vss-work-web.iteration-backlog-toolpane"],
+        "targets": ["ms.vss-work-web.iteration-backlog-toolpane",
+                    "ms.vss-work-web.sprint-board-pivot-filter-menu"],
         "properties": {
           "uri": "toolpane.html",
           "name": "Sprint Backlog Activity",
