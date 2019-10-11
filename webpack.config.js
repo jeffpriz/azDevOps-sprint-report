@@ -1,40 +1,59 @@
-"use strict";
+const path = require("path");
+const fs = require("fs");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 
-var path = require("path");
-var WebpackNotifierPlugin = require("webpack-notifier");
-var BrowserSyncPlugin = require("browser-sync-webpack-plugin");
+// Webpack entry points. Mapping from resulting bundle name to the source file entry.
+const entries = {};
+
+// Loop through subfolders in the "Samples" folder and add an entry for each one
+const samplesDir = path.join(__dirname, "src/Samples");
+fs.readdirSync(samplesDir).filter(dir => {
+    if (fs.statSync(path.join(samplesDir, dir)).isDirectory()) {
+        entries[dir] = "./" + path.relative(process.cwd(), path.join(samplesDir, dir, dir));
+    }
+});
 
 module.exports = {
-    entry: {
-        MyComponent: "./src/components/MyComponent.jsx",
-        spinner: "./src/components/spinner.jsx",
-        app: "./src/app.jsx",
-        main: "./src/main.jsx"
-    }, 
+    entry: entries,
     output: {
-        path: path.resolve(__dirname, "./dist"),
-        filename: "[name].js"
+        filename: "[name]/[name].js"
+    },
+    resolve: {
+        extensions: [".ts", ".tsx", ".js"],
+        alias: {
+            "azure-devops-extension-sdk": path.resolve("node_modules/azure-devops-extension-sdk")
+        },
+    },
+    stats: {
+        warnings: false
     },
     module: {
         rules: [
             {
-                test: /\.jsx$/,
-                exclude: /node_modules/,
-                use: {
-                    loader: "babel-loader"
-                },
-                resolve: {
-                    extensions: ['.js', '.jsx']
-                }
+                test: /\.tsx?$/,
+                loader: "ts-loader"
+            },
+            {
+                test: /\.scss$/,
+                use: ["style-loader", "css-loader", "azure-devops-ui/buildScripts/css-variables-loader", "sass-loader"]
+            },
+            {
+                test: /\.css$/,
+                use: ["style-loader", "css-loader"],
+            },
+            {
+                test: /\.woff$/,
+                use: [{
+                    loader: 'base64-inline-loader'
+                }]
+            },
+            {
+                test: /\.html$/,
+                loader: "file-loader"
             }
         ]
     },
-    
-    devtool: "inline-source-map",
-    plugins: [new WebpackNotifierPlugin(), new BrowserSyncPlugin()],
-    externals: {
-        "react": "React",
-        "react-dom": "ReactDOM"
-    }
+    plugins: [
+        new CopyWebpackPlugin([ { from: "**/*.html", context: "src/Samples" }])
+    ]
 };
-
