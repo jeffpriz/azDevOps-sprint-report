@@ -5,7 +5,8 @@
             "type": "ms.vss-work-web.backlog-panel",
             "description": "Display Sprint backlog activity.",
             "targets": [
-                "ms.vss-work-web.iteration-backlog-tabs"
+                "ms.vss-work-web.iteration-backlog-tabs",
+                "ms.vss-work-web.iteration-backlog-toolpane"
             ],
             "properties": {
                 "title": "Sprint Backlog Activity",
