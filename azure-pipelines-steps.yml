@@ -11,3 +11,7 @@ steps:
 - script: |
     npm run build
   displayName: 'Compile and package'
+
+  - script: |
+    npm run package-extension
+  displayName: 'Compile and package'
