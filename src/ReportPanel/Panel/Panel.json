@@ -2,7 +2,7 @@
     "contributions": [
         {
             "id": "sprintBacklogActivity",
-            "type": "ms.vss-work-web.backlog-panel",
+            "type": "ms.vss-web.tab",
             "description": "Display Sprint backlog activity.",
             "targets": [
                 "ms.vss-work-web.iteration-backlog-tabs",
