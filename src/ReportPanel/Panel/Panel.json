@@ -11,8 +11,7 @@
             "properties": {
                 "title": "Sprint Backlog Activity",
                 "name": "Sprint Backlog Activity",
-                "uri": "dist/Panel/Panel.html",
-                "registeredObjectId": "sprintBacklogPanelObject"
+                "uri": "dist/Panel/Panel.html"
             }
         }
     ],
