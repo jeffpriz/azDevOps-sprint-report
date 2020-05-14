@@ -15,3 +15,14 @@ steps:
 - script: |
     npm run package-extension
   displayName: 'Compile and package'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
+
+- task: CopyFiles@2
+  inputs:
+    Contents: '**/*.vsix'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)''
